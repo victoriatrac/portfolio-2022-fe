@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import axios from 'axios'
 import './App.css'
 
 import portrait from './img/portrait.jpg'
@@ -6,11 +7,20 @@ import portrait from './img/portrait.jpg'
 function App() {
   const [data, setData] = React.useState(null)
 
-  React.useEffect(() => {
-    fetch('/api/project')
-      .then((res) => res.json())
-      .then((data) => setData(data.message))
+  useEffect(() => {
+    axios.get('http://localhost:1234/')
+      .then(res => {
+        console.log(res)
+        setData(res.data.message)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }, [])
+  //   fetch('/')
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data.message))
+  // }, [])
 
   return (
     <div className='App'>
@@ -21,7 +31,7 @@ function App() {
         <img src={portrait} alt='me smiling against a wall of colorful artwork' className='portrait'/> 
 
         <p>
-          I created this Linktree-style page specifically for the Denver Startup Week 2022 job fair. It uses React, Express, and a serverless Node API. Hosted on Vercel.
+          I created this Linktree-style page specifically for the Denver Startup Week 2022 job fair. The front end is React and Express. The backend was created with Node, Knex, and SQLite3. Hosted on Vercel.
           <br /><a href='https://github.com/victoriatrac/portfolio-2022-fe'>GitHub - front end</a>
           <br /><a href='https://github.com/victoriatrac/portfolio-2022-be'>GitHub - back end</a>
         </p>
@@ -37,4 +47,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
