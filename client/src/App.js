@@ -17,10 +17,6 @@ function App() {
         console.log(err)
       })
   }, [])
-  //   fetch('/')
-  //     .then((res) => res.json())
-  //     .then((data) => setData(data.message))
-  // }, [])
 
   return (
     <div className='App'>
@@ -31,7 +27,7 @@ function App() {
         <img src={portrait} alt='me smiling against a wall of colorful artwork' className='portrait'/> 
 
         <p>
-          I created this Linktree-style page specifically for the Denver Startup Week 2022 job fair. The front end is React and Express. The backend was created with Node, Knex, and SQLite3. Hosted on Vercel.
+          Work in progress. The front end is React and Express. The backend was created with Node, Knex, and SQLite3. Hosted on Vercel.
           <br /><a href='https://github.com/victoriatrac/portfolio-2022-fe'>GitHub - front end</a>
           <br /><a href='https://github.com/victoriatrac/portfolio-2022-be'>GitHub - back end</a>
         </p>
